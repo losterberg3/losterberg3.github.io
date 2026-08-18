@@ -213,7 +213,8 @@ figcaption {
 }
 figcaption b { color: var(--ink); }
 
-.figure-tall img { max-height: 620px; width: auto; }
+.figure-medium img { max-height: 420px; width: auto; }
+.figure-small img { max-height: 320px; width: auto; }
 .two-col-figs {
   display: grid;
   grid-template-columns: 1fr 1fr;

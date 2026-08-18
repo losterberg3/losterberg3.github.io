@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UniMem: Unifying Multimodal Memory and Control for VLAs</title>
+<title>github.com/unimem-vla</title>
 <meta name="description" content="UniMem unifies multimodal memory and low-level control under a single VLA backbone for long-horizon, non-Markovian robot manipulation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -107,8 +107,8 @@
       <p class="section-label">Method</p>
       <h2 class="section-title">How UniMem works</h2>
 
-      <figure>
-        <img src="assets/img/model_overview.png" alt="UniMem model overview diagram" class="figure-tall-img">
+      <figure class="figure-medium">
+        <img src="assets/img/model_overview.png" alt="UniMem model overview diagram">
         <figcaption><b>Overview of UniMem.</b> (Top) An event classifier detects sparse sub-task transition events
         from the backbone's latent representation, updating both textual memory and a keyframe cache. (Middle) A
         keyframe encoder conditions on the autoregressively updated cache and the current image, while textual
@@ -211,10 +211,7 @@
           <span class="vs-title">HammerMeasure — UniMem (Ours)</span>
           <span class="vs-sub">Video coming soon</span>
         </div>
-        <p class="analysis">With no memory the policy drifts back and forth, unable to track progress. Text-only
-        and keyframe-only both improve to 53% but still lose track of certain events. Only once both modalities
-        combine does memory become robust, matching MemER's 87%. Remaining failures for both are purely
-        mechanical — the precision needed to hook the tape measure onto the hammer.</p>
+        <p class="analysis"></p>
       </div>
 
       <!-- BeanScoop -->
@@ -234,11 +231,7 @@
           <span class="vs-title">BeanScoop — UniMem (Ours)</span>
           <span class="vs-sub">Video coming soon</span>
         </div>
-        <p class="analysis">Without memory the policy never stops scooping and pouring. Text memory helps counting,
-        but the policy sometimes advances before committing the previous pour to memory, undercounting scoops.
-        Keyframes avoid this outright. MemER reaches a third scoop in 67% of rollouts but a single incorrect
-        high-level command can become unrecoverable; UniMem conditions on both modalities at every control step,
-        reaching <b>93%</b>.</p>
+        <p class="analysis"></p>
       </div>
 
       <!-- TableClean -->
@@ -258,10 +251,7 @@
           <span class="vs-title">TableClean — UniMem (Ours)</span>
           <span class="vs-sub">Video coming soon</span>
         </div>
-        <p class="analysis">No memory can't distinguish grabbing from placing. Text-only wipes in random locations.
-        Keyframes add spatial memory (53% correct wipes) but still loop or forget to replace the sponge. MemER's
-        high-level left/right/center cues aren't precise enough over such a large table (13%). Full UniMem wipes
-        the bottle's exact spot 80% of the time, missing by no more than 10cm.</p>
+        <p class="analysis"></p>
       </div>
 
       <!-- TapScoopPour -->
@@ -281,13 +271,10 @@
           <span class="vs-title">TapScoopPour — UniMem (Ours)</span>
           <span class="vs-sub">Video coming soon</span>
         </div>
-        <p class="analysis">Without memory the robot loses the human's tap signal almost immediately. Text-only and
-        MemER pour into the correct cup only 7% of the time — essentially chance among eight cups. Keyframes alone
-        reach 27%, with misses landing on adjacent cups rather than arbitrary ones — the visual memory already
-        encodes rough location. Adding textual memory sharpens this into exact cup selection, reaching <b>60%</b>.</p>
+        <p class="analysis"></p>
       </div>
 
-      <figure>
+      <figure class="figure-small">
         <img src="assets/img/subtask_cumulative_breakdown.png" alt="Cumulative subtask success rate breakdown">
         <figcaption><b>Cumulative success rates.</b> Stage-by-stage breakdown for BeanScoop, TableClean, and
         TapScoopPour, showing where each ablation and baseline drops off within the task.</figcaption>
@@ -337,8 +324,7 @@
           <span class="vs-title">UpDown — UniMem (Ours)</span>
           <span class="vs-sub">Video coming soon</span>
         </div>
-        <p class="analysis">A short, largely Markovian warm-up task confirming that memory conditioning doesn't
-        impede low-level control — most methods do well here.</p>
+        <p class="analysis"></p>
       </div>
 
       <!-- UpDown3Times -->
@@ -357,9 +343,7 @@
           <span class="vs-title">UpDown3Times — UniMem (Ours)</span>
           <span class="vs-sub">Video coming soon</span>
         </div>
-        <p class="analysis">Requires counting three repeated cycles. Keyframes alone fail (23%) — their reach is
-        too short — while text memory alone reaches 93% by compactly tracking the count. UniMem combines both for
-        <b>96%</b>.</p>
+        <p class="analysis"></p>
       </div>
 
       <!-- OccludedTap -->
@@ -379,9 +363,7 @@
           <span class="vs-title">OccludedTap — UniMem (Ours)</span>
           <span class="vs-sub">Video coming soon</span>
         </div>
-        <p class="analysis">Tests recall of an object hidden from view. Visual memory resolves this cleanly (100%
-        for keyframe-only); text-only lags slightly since language struggles to encode which of several
-        near-identical bins holds the box.</p>
+        <p class="analysis"></p>
       </div>
 
       <!-- UpDownSpatial -->
@@ -401,9 +383,7 @@
           <span class="vs-title">UpDownSpatial — UniMem (Ours)</span>
           <span class="vs-sub">Video coming soon</span>
         </div>
-        <p class="analysis">Requires precise recall of the original pickup location. Text alone drops to 30%
-        without geometric grounding; combining keyframes with textual memory resolves both spatial and progress
-        ambiguity, reaching <b>79%</b>.</p>
+        <p class="analysis"></p>
       </div>
 
       <!-- PlateRecall -->
@@ -423,9 +403,7 @@
           <span class="vs-title">PlateRecall — UniMem (Ours)</span>
           <span class="vs-sub">Video coming soon</span>
         </div>
-        <p class="analysis">A discrete 1-of-4 spatial recall task. Text-only is near chance (20%), while keyframes
-        and the video baseline match the full model (96%) — visual memory alone resolves discrete spatial
-        questions once task progress is otherwise easy to infer.</p>
+        <p class="analysis"></p>
       </div>
     </div>
   </section>
